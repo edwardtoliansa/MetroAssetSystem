@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Edward\\source\\05.Git\\MAS.Client\\MAS.Client.csproj": {}
+    "C:\\Users\\Edward\\source\\05.Git\\Final Project\\MetroAssetSystem\\MAS.Client\\MAS.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Edward\\source\\05.Git\\MAS.Client\\MAS.Client.csproj": {
+    "C:\\Users\\Edward\\source\\05.Git\\Final Project\\MetroAssetSystem\\MAS.Client\\MAS.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Edward\\source\\05.Git\\MAS.Client\\MAS.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Edward\\source\\05.Git\\Final Project\\MetroAssetSystem\\MAS.Client\\MAS.Client.csproj",
         "projectName": "MAS.Client",
-        "projectPath": "C:\\Users\\Edward\\source\\05.Git\\MAS.Client\\MAS.Client.csproj",
+        "projectPath": "C:\\Users\\Edward\\source\\05.Git\\Final Project\\MetroAssetSystem\\MAS.Client\\MAS.Client.csproj",
         "packagesPath": "C:\\Users\\Edward\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Edward\\source\\05.Git\\MAS.Client\\obj\\",
+        "outputPath": "C:\\Users\\Edward\\source\\05.Git\\Final Project\\MetroAssetSystem\\MAS.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
