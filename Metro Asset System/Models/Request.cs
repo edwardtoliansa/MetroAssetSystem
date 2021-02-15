@@ -10,8 +10,8 @@ namespace Metro_Asset_System.Models
     [Table("TB_M_Request")]
     public class Request
     {
-        [Key, Required]
-        public int Id { get; set; }
+        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        public string Id { get; set; }
         [Required, DataType(DataType.Date)]
         public DateTime LoanDate { get; set; }
         [Required, DataType(DataType.Date)]
