@@ -18,6 +18,9 @@ namespace Metro_Asset_System.Models
         public int RequestId {get; set; }
         [Required, MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
         public string ProcurementEmployeeId { get; set; }
+        public virtual PinaltyHistory PinaltyHistory { get; set; }
+        public virtual Request Request { get; set; }
+
     }
 
     public enum StatusInvoice 

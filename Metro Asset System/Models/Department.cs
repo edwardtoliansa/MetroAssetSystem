@@ -14,5 +14,7 @@ namespace Metro_Asset_System.Models
         public int Id { get; set; }
         [Required, MaxLength(100, ErrorMessage = "Maksimal 100 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
         public string Name { get; set; }
+
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -12,18 +12,23 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter"), MinLength(5, ErrorMessage = "Minimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
         public string NIK { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
+        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
+        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter")]
         public string LastName { get; set; }
         [Required, DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
-        [Required, Phone, MaxLength(12, ErrorMessage = "Maksimal 12 karakter")]
+        public string Birthday { get; set; }
+        [Required, MaxLength(12, ErrorMessage = "Maksimal 12 karakter"), RegularExpression(@"^08[0-9]{9,10}$", ErrorMessage = "Harus berupa angka diawali 08")]
         public string Phone { get; set; }
         [Required, EmailAddress, MaxLength(100, ErrorMessage = "Maksimal 100 karakter")]
         public string Email { get; set; }
         [Required]
         public EmployeeRole Role { get; set; }
+
+        public virtual Account Account { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual Request Request { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 
     public enum EmployeeRole 

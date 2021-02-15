@@ -16,6 +16,7 @@ namespace Metro_Asset_System.Models
         public int RequestId { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string AssetId { get; set; }
-
+        public virtual Request Request { get; set; }
+        public virtual ItemRequest Aseet { get; set; }
     }
 }

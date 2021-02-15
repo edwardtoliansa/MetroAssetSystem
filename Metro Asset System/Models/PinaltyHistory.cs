@@ -14,5 +14,7 @@ namespace Metro_Asset_System.Models
         public int Id { get; set; }
         [Required, MaxLength(9, ErrorMessage = "Maksimal 9 karakter")]
         public string InvoiceId { get; set; }
+
+        public virtual Invoice Invoice { get; set; }
     }
 }

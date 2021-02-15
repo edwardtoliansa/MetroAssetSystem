@@ -18,6 +18,7 @@ namespace Metro_Asset_System.Models
         public string Password { get; set; }
         [Required]
         public StatusAccount Status { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 
     public enum StatusAccount

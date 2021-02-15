@@ -26,6 +26,9 @@ namespace Metro_Asset_System.Models
         public string RequesterManagerId { get; set; }
         [Required, MaxLength(15, ErrorMessage = "Maksimal 15 karakter")]
         public string ProcurementManagerId { get; set; }
+        public virtual Invoice Invoice { get; set; }
+        public virtual ItemRequest ItemRequest { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 
     public enum Status 

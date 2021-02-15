@@ -17,7 +17,10 @@ namespace Metro_Asset_System.Models
         [Required]
         public StatusAsset AssetStatus { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter")]
-        public string Category { get; set; }
+        public string CategoryId { get; set; }
+        public virtual Pinalty Pinalty { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual ItemRequest ItemRequest { get; set; }
     }
 
     public enum StatusAsset 
