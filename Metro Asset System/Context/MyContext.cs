@@ -30,7 +30,7 @@ namespace Metro_Asset_System.Context
 
             modelBuilder.Entity<ItemRequest>().HasOne(i => i.Request).WithMany(r => r.ItemRequest).HasForeignKey(i => i.RequestId);
 
-            modelBuilder.Entity<RequestDetail>().HasOne(r => r.Id)
+            //modelBuilder.Entity<RequestDetail>().HasOne(r => r.Id)
         }
 
         public DbSet<Account> Accounts { get; set; }

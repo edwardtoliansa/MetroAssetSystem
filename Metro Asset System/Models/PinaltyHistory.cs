@@ -15,6 +15,8 @@ namespace Metro_Asset_System.Models
         [ForeignKey("Invoice"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(8, ErrorMessage = "Maksimal 8 karakter")]
         public string InvoiceId { get; set; }
 
+        public long Pinalty { get; set; }
+
         public virtual Invoice Invoice { get; set; }
     }
 }

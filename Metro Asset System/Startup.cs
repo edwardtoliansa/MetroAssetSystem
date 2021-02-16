@@ -1,7 +1,10 @@
+using Metro_Asset_System.Context;
+using Metro_Asset_System.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +29,22 @@ namespace Metro_Asset_System
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+
+            services.AddScoped<AccountRepository>();
+            services.AddScoped<AssetRepository>();
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<DepartmentRepository>();
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<InvoiceRepository>();
+            services.AddScoped<ItemRequestRepository>();
+            services.AddScoped<PinaltyRepository>();
+            services.AddScoped<RequestRepository>();
+            //services.AddScoped<Repository>();
+            //services.AddScoped<Repository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
