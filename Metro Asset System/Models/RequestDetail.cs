@@ -23,6 +23,8 @@ namespace Metro_Asset_System.Models
         [Required, MaxLength(11, ErrorMessage = "Maksimal 11 karakter")]
         public string EmployeeId { get; set; }
 
+        public virtual Request Request { get; set; }
+
     }
 
     public enum StatusRequestDetail 

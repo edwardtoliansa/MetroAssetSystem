@@ -31,7 +31,7 @@ namespace Metro_Asset_System.Models
 
         public virtual Account Account { get; set; }
         public virtual Department Department { get; set; }
-        public virtual Request Request { get; set; }
+        public virtual ICollection<Request> Request { get; set; }
         public virtual ICollection<Invoice> Invoice { get; set; }
     }
 

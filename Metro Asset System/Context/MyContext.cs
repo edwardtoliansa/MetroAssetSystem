@@ -47,6 +47,14 @@ namespace Metro_Asset_System.Context
             modelBuilder.Entity<ItemRequest>().HasOne(i => i.Request).WithMany(r => r.ItemRequest).HasForeignKey(i => i.RequestId);
 
             //modelBuilder.Entity<RequestDetail>().HasOne(r => r.Id)
+
+            //Invoice - Request
+            //Employee - Request
+            //Request - RequestDetail
+
+            modelBuilder.Entity<Invoice>().HasOne(i => i.Request).WithOne(r => r.Invoice).HasForeignKey<Invoice>(i => i.RequestId);
+            modelBuilder.Entity<Request>().HasOne(r => r.Employee).WithMany(e => e.Request).HasForeignKey(r => r.RequesterId);
+            modelBuilder.Entity<RequestDetail>().HasOne(rd => rd.Request).WithMany(r => r.RequestDetail).HasForeignKey(rd => rd.RequestId);
         }
     }
 }

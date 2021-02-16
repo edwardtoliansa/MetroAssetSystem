@@ -26,6 +26,8 @@ namespace Metro_Asset_System.Models
         public virtual Invoice Invoice { get; set; }
         public virtual ICollection<ItemRequest> ItemRequest { get; set; }
         public virtual Employee Employee { get; set; }
+
+        public virtual ICollection<RequestDetail> RequestDetail { get; set; }
     }
 
     public enum Status 
