@@ -10,23 +10,23 @@ namespace Metro_Asset_System.Models
     [Table("TB_M_Request")]
     public class Request
     {
-        [Key, Required]
-        public int Id { get; set; }
-        [Required, DataType(DataType.Date)]
-        public DateTime LoanDate { get; set; }
-        [Required, DataType(DataType.Date)]
+
+        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        public string Id { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        public string LoanDate { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string ReturnDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public Status Status { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public RequestStatus RequestStatus { get; set; }
-        [Required, MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
+        [ForeignKey("Employee"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
         public string RequesterId { get; set; }
-        [Required, MaxLength(15, ErrorMessage = "Maksimal 15 karakter")]
-        public string RequesterManagerId { get; set; }
-        [Required, MaxLength(15, ErrorMessage = "Maksimal 15 karakter")]
-        public string ProcurementManagerId { get; set; }
-        public virtual ICollection<ItemRequest> ItemRequests { get; set; }
+
+        public virtual Invoice Invoice { get; set; }
+        public virtual ICollection<ItemRequest> ItemRequest { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 
     public enum Status 

@@ -12,6 +12,7 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
         public string Id { get; set; }
+
         [Required, MaxLength(100, ErrorMessage = "Maksimal 100 karakter")]
         public string Name { get; set; }
 

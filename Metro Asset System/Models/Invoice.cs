@@ -12,7 +12,7 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(8, ErrorMessage = "Maksimal 8 karakter")]
         public string Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public StatusInvoice Status {get; set; } 
         [Required,DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
@@ -21,6 +21,7 @@ namespace Metro_Asset_System.Models
         public int RequestId {get; set; }
         [Required]
         public string ProcurementEmployeeId { get; set; }
+        public virtual Request Request { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual PinaltyHistory PinaltyHistory { get; set; }
     }

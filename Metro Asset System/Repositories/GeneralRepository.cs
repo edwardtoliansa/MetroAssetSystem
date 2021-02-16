@@ -27,7 +27,7 @@ namespace Metro_Asset_System.Repositories
             {
                 throw new ArgumentNullException("entity");
             }
-            else
+            else 
             {
                 entities.Add(entity);
                 var result = myContext.SaveChanges();
@@ -37,11 +37,12 @@ namespace Metro_Asset_System.Repositories
 
         public int Delete(Id id)
         {
-            if (entities == null)
+
+            if (entities == null) 
             {
                 throw new ArgumentNullException("entity");
             }
-            else
+            else 
             {
                 Entity entity = entities.Find(id);
                 entities.Remove(entity);
@@ -66,7 +67,7 @@ namespace Metro_Asset_System.Repositories
             {
                 throw new ArgumentNullException("entity");
             }
-            else
+            else 
             {
                 try
                 {
@@ -74,7 +75,6 @@ namespace Metro_Asset_System.Repositories
                     var result = myContext.SaveChanges();
                     return result;
                 }
-
                 catch (Exception)
                 {
                     throw;

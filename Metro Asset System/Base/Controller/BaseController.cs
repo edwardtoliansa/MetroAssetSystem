@@ -1,4 +1,4 @@
-﻿using Metro_Asset_System.Repositories.Interfaces;
+using Metro_Asset_System.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +10,7 @@ namespace Metro_Asset_System.Base.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BaseController<Entity, Repository, Id> : ControllerBase
         where Entity : class
         where Repository : IRepository<Entity, Id>

@@ -35,7 +35,16 @@ namespace Metro_Asset_System
 
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             services.AddScoped<AccountRepository>();
+            services.AddScoped<AssetRepository>();
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<DepartmentRepository>();
             services.AddScoped<EmployeeRepository>();
+            services.AddScoped<InvoiceRepository>();
+            services.AddScoped<ItemRequestRepository>();
+            services.AddScoped<PinaltyRepository>();
+            services.AddScoped<PinaltyHistoryRepository>();
+            services.AddScoped<RequestRepository>();
+            services.AddScoped<RequestDetailRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
