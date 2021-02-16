@@ -12,36 +12,39 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string Id { get; set; }
-        [Required, DataType(DataType.Date)]
-        public DateTime LoanDate { get; set; }
-        [Required, DataType(DataType.Date)]
-        public DateTime ReturnDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
+        public string LoanDate { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
+        public string ReturnDate { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public Status Status { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public RequestStatus RequestStatus { get; set; }
-        [Required, MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
+        [ForeignKey("Employee"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
         public string RequesterId { get; set; }
-        [Required, MaxLength(15, ErrorMessage = "Maksimal 15 karakter")]
-        public string RequesterManagerId { get; set; }
-        [Required, MaxLength(15, ErrorMessage = "Maksimal 15 karakter")]
-        public string ProcurementManagerId { get; set; }
+
         public virtual Invoice Invoice { get; set; }
-        public virtual ItemRequest ItemRequest { get; set; }
+        public virtual ICollection<ItemRequest> ItemRequest { get; set; }
         public virtual Employee Employee { get; set; }
     }
 
     public enum Status 
     {
-        Inactive,
-        Active
+        [Display(Name = "Inactive")]
+        Inactive = 0,
+        [Display(Name = "Active")]
+        Active = 1
     }
 
     public enum RequestStatus
-    { 
-        Waiting_Approval_Level_1,
-        Waiting_Approval_Level_2,
-        Approved,
-        Processed
+    {
+        [Display(Name = "Waiting Approval Level 1")]
+        Waiting_Approval_Level_1 = 0,
+        [Display(Name = "Waiting Approval Level 2")]
+        Waiting_Approval_Level_2 = 1,
+        [Display(Name = "Approved")]
+        Approved = 2,
+        [Display(Name = "Processed")]
+        Processed = 3
     }
 }

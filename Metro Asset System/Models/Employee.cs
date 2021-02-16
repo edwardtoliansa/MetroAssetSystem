@@ -24,18 +24,26 @@ namespace Metro_Asset_System.Models
         public string Email { get; set; }
         [Required]
         public EmployeeRole Role { get; set; }
+        [ForeignKey("Department"), Required, MaxLength(5, ErrorMessage ="Maksimal 5 karakter")]
+        public string DepartmentId { get; set; }
+        [ForeignKey("Request"), MaxLength(11, ErrorMessage = "Maksimal 11 karakter")]
+        public string ManagerId { get; set; }
 
         public virtual Account Account { get; set; }
         public virtual Department Department { get; set; }
         public virtual Request Request { get; set; }
-        public virtual Invoice Invoice { get; set; }
+        public virtual ICollection<Invoice> Invoice { get; set; }
     }
 
     public enum EmployeeRole 
     { 
-        Employee,
-        Manager,
-        Procurement_Manager,
-        Procurement_Employee
+        [Display(Name = "Employee")]
+        Employee = 0,
+        [Display(Name = "Employee Manager")]
+        Manager = 1,
+        [Display(Name = "Procurement Manager")]
+        Procurement_Manager = 2,
+        [Display(Name = "Procurement Employee")]
+        Procurement_Employee = 3
     }
 }

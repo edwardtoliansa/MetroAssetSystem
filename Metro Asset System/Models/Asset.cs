@@ -11,22 +11,37 @@ namespace Metro_Asset_System.Models
     public class Asset
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
         public string Name { get; set; }
         [Required]
         public StatusAsset AssetStatus { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter")]
+        public StatusLoan LoanStatus { get; set; }
+        [Required, DataType(DataType.Date)]
+        public string InputDate { get; set; }
+        [ForeignKey("Category"),Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter")]
         public string CategoryId { get; set; }
+
         public virtual Pinalty Pinalty { get; set; }
         public virtual Category Category { get; set; }
-        public virtual ItemRequest ItemRequest { get; set; }
+        public virtual ICollection<ItemRequest> ItemRequest { get; set; }
     }
 
     public enum StatusAsset 
-    { 
-        Fine,
-        Problem,
-        Lost
+    {
+        [Display(Name = "Fine")]
+        Fine = 0,
+        [Display(Name = "Problem")]
+        Problem = 1,
+        [Display(Name = "Lost")]
+        Lost = 2
+    }
+
+    public enum StatusLoan 
+    {
+        [Display(Name = "Available")]
+        Available = 0,
+        [Display(Name = "Unavailable")]
+        Unavailable = 1
     }
 }

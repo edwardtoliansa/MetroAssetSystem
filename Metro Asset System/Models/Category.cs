@@ -14,6 +14,6 @@ namespace Metro_Asset_System.Models
         public int Id { get; set; }
         [Required, RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
         public string Name { get; set; }
-        public virtual Asset Asset { get; set; }
+        public virtual ICollection<Asset> Asset { get; set; }
     }
 }

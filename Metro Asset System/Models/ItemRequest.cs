@@ -12,11 +12,11 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong")]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong")]
-        public int RequestId { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        [ForeignKey("Request"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        public string RequestId { get; set; }
+        [ForeignKey("Asset"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string AssetId { get; set; }
         public virtual Request Request { get; set; }
-        public virtual ItemRequest Aseet { get; set; }
+        public virtual Asset Asset { get; set; }
     }
 }

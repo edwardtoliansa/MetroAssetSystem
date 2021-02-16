@@ -20,7 +20,7 @@ namespace Metro_Asset_System.Models
         public int HighPinalty { get; set; }
         [Required]
         public int LostPinalty { get; set; }
-        [Required, MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        [ForeignKey("Asset"), Required, MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string AssetId { get; set; }
         public virtual Asset Asset { get; set; }
 
