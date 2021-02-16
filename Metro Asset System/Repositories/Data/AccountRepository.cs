@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using Metro_Asset_System.Context;
 using Metro_Asset_System.Handler;
 using Metro_Asset_System.Models;

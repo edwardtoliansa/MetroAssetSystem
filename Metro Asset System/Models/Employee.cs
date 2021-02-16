@@ -29,10 +29,10 @@ namespace Metro_Asset_System.Models
         public string DepartmentId { get; set; }
         public EmployeeRole Role { get; set; }
 
-
         public virtual Employee Manager { get; set; }
         public virtual Department Department { get; set; }
         public virtual Account Account { get; set; }
+        public virtual ICollection<Request> Request { get; set; }
         public virtual ICollection<Invoice> Invoices { get; set; }
         public virtual ICollection<RequestDetail> RequestDetails { get; set; }
     }

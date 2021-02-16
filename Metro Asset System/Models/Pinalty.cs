@@ -13,15 +13,16 @@ namespace Metro_Asset_System.Models
         [Key, Required]
         public int Id { get; set; }
         [Required]
-        public int LowPinalty { get; set; }
+        public long LowPinalty { get; set; }
         [Required]
-        public int MiddlePinalty { get; set; }
+        public long MiddlePinalty { get; set; }
         [Required]
-        public int HighPinalty { get; set; }
+        public long HighPinalty { get; set; }
         [Required]
-        public int LostPinalty { get; set; }
-        [Required, MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
+        public long LostPinalty { get; set; }
+        [ForeignKey("Asset"), Required, MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string AssetId { get; set; }
+        public virtual Asset Asset { get; set; }
 
     }
 }
