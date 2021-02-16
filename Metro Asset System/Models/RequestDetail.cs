@@ -16,11 +16,11 @@ namespace Metro_Asset_System.Models
         public StatusRequestDetail Status { get; set; }
         [MaxLength(20, ErrorMessage = "Maksimal 10 karakter")]
         public string? Note { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string Date { get; set; }
         [Required, MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
         public string RequestId { get; set; }
-        [Required, MaxLength(11, ErrorMessage = "Maksimal 11 karakter"]
+        [Required, MaxLength(11, ErrorMessage = "Maksimal 11 karakter")]
         public string EmployeeId { get; set; }
 
     }

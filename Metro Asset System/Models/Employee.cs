@@ -16,7 +16,7 @@ namespace Metro_Asset_System.Models
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter")]
         public string LastName { get; set; }
-        [Required, DataType(DataType.Date)]
+        [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string Birthday { get; set; }
         [Required, MaxLength(12, ErrorMessage = "Maksimal 12 karakter"), RegularExpression(@"^08[0-9]{9,10}$", ErrorMessage = "Harus berupa angka diawali 08")]
         public string Phone { get; set; }

@@ -11,6 +11,22 @@ namespace Metro_Asset_System.Context
     {
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
 
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Asset> Assets { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<ItemRequest> ItemRequests { get; set; }
+        public DbSet<Pinalty> Pinalties { get; set; }
+        public DbSet<PinaltyHistory> PinaltyHistories { get; set; }
+        public DbSet<Request> Requests { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().HasOne(e => e.Department).WithMany(d => d.Employees).HasForeignKey(e => e.DepartmentId);
@@ -32,17 +48,6 @@ namespace Metro_Asset_System.Context
 
             //modelBuilder.Entity<RequestDetail>().HasOne(r => r.Id)
         }
-
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Asset> Assets { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
-        public DbSet<ItemRequest> ItemRequests { get; set; }
-        public DbSet<Pinalty> Pinalties { get; set; }
-        public DbSet<PinaltyHistory> PinaltyHistories { get; set; }
-        public DbSet<Request> Requests { get; set; }
     }
 }
 

@@ -17,7 +17,7 @@ namespace Metro_Asset_System.Models
         [Required]
         public StatusAsset AssetStatus { get; set; }
         public StatusLoan LoanStatus { get; set; }
-        [Required, DataType(DataType.Date)]
+        [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string InputDate { get; set; }
         [ForeignKey("Category"),Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter")]
         public string CategoryId { get; set; }

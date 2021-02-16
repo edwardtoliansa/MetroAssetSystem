@@ -40,11 +40,9 @@ namespace Metro_Asset_System
             services.AddScoped<InvoiceRepository>();
             services.AddScoped<ItemRequestRepository>();
             services.AddScoped<PinaltyRepository>();
+            services.AddScoped<PinaltyHistoryRepository>();
             services.AddScoped<RequestRepository>();
-            //services.AddScoped<Repository>();
-            //services.AddScoped<Repository>();
-
-
+            services.AddScoped<RequestDetailRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

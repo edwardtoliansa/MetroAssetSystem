@@ -10,7 +10,7 @@ namespace Metro_Asset_System.Models
     [Table("TB_M_Account")]
     public class Account
     {
-        [Key, ForeignKey("Employee"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(11, ErrorMessage = "Maksimal 11 karakter"), MinLength(5, ErrorMessage = "Minimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
+        [Key, ForeignKey("Employee"), Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter"), MinLength(5, ErrorMessage = "Minimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
         public string NIK { get; set; }
 
         [Required(ErrorMessage ="Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter")]
