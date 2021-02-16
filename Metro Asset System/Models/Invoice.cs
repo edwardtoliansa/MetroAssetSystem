@@ -10,20 +10,28 @@ namespace Metro_Asset_System.Models
     [Table("TB_T_Invoice")]
     public class Invoice
     {
-        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(9, ErrorMessage = "Maksimal 9 karakter")]
+        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(8, ErrorMessage = "Maksimal 8 karakter")]
         public string Id { get; set; }
         [Required]
         public StatusInvoice Status {get; set; } 
+        [Required,DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        public string InvoiceDate { get; set; }
         [Required]
         public int RequestId {get; set; }
-        [Required, MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
+        [Required]
         public string ProcurementEmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual PinaltyHistory PinaltyHistory { get; set; }
     }
 
     public enum StatusInvoice 
     {
-        On_Going,
-        Finished_Fine,
-        Finished_With_Problem
+        [Display(Name = "On Going")]
+        On_Going =0,
+        [Display(Name = "Finished Fine")]
+        Finished_Fine = 1,
+        [Display(Name = "Finished With Problem")]
+        Finished_With_Problem = 2
     }
 }

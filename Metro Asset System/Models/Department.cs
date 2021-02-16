@@ -10,9 +10,11 @@ namespace Metro_Asset_System.Models
     [Table("TB_M_Department")]
     public class Department
     {
-        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(5, ErrorMessage = "Maksimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
-        public int Id { get; set; }
-        [Required, MaxLength(100, ErrorMessage = "Maksimal 100 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
+        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
+        public string Id { get; set; }
+        [Required, MaxLength(100, ErrorMessage = "Maksimal 100 karakter")]
         public string Name { get; set; }
+
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

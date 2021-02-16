@@ -10,27 +10,42 @@ namespace Metro_Asset_System.Models
     [Table("TB_M_Employee")]
     public class Employee
     {
-        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter"), MinLength(5, ErrorMessage = "Minimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
+        [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(7, ErrorMessage = "Maksimal 7 karakter")]
         public string NIK { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
+        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter"), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Harus berupa huruf")]
+        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(50, ErrorMessage = "Maksimal 50 karakter")]
         public string LastName { get; set; }
         [Required, DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
-        [Required, Phone, MaxLength(12, ErrorMessage = "Maksimal 12 karakter")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        public string Birthday { get; set; }
+        [Required, RegularExpression(@"^08[0-9]{9,10}$", ErrorMessage = "Harus berupa angka diawali 08"), MaxLength(12, ErrorMessage = "Maksimal 12 karakter"), MinLength(11, ErrorMessage = "Minimal 11 karakter")]
         public string Phone { get; set; }
-        [Required, EmailAddress, MaxLength(100, ErrorMessage = "Maksimal 100 karakter")]
+        [Required, EmailAddress(ErrorMessage ="Masukan format email yang valid"), MaxLength(100, ErrorMessage = "Maksimal 100 karakter")]
         public string Email { get; set; }
-        [Required]
+        [MaxLength(11, ErrorMessage = "Maksimal 11 karakter")]
+        public string? ManagerId { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(4, ErrorMessage = "Maksimal 4 karakter")]
+        public string DepartmentId { get; set; }
         public EmployeeRole Role { get; set; }
+
+
+        public virtual Employee Manager { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual Account Account { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<RequestDetail> RequestDetails { get; set; }
     }
 
     public enum EmployeeRole 
-    { 
-        Employee,
-        Manager,
-        Procurement_Manager,
-        Procurement_Employee
+    {
+        [Display(Name = "Employee")]
+        Employee = 0,
+        [Display(Name = "Employee Manager")]
+        Employee_Manager = 1,
+        [Display(Name = "Procurement Manager")]
+        Procurement_Manager = 2,
+        [Display(Name = "Procurement Employee")]
+        Procurement_Employee = 3
     }
 }

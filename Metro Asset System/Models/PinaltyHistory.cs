@@ -12,7 +12,11 @@ namespace Metro_Asset_System.Models
     {
         [Key, Required]
         public int Id { get; set; }
-        [Required, MaxLength(9, ErrorMessage = "Maksimal 9 karakter")]
+        [Required]
         public string InvoiceId { get; set; }
+        [Required(ErrorMessage ="Tidak boleh kosong")]
+        public long Pinalty { get; set; }
+
+        public virtual Invoice Invoice { get; set; }
     }
 }
